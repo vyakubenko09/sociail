@@ -24,11 +24,13 @@ format used by the Zulip server that they are interacting with.
 
 * [`PATCH /realm/user_settings_defaults`](/api/update-realm-user-settings-defaults),
   [`POST /register`](/api/register-queue), [`PATCH /settings`](/api/update-settings):
-  Added `enable_followed_topic_email_notifications`, `enable_followed_topic_push_notifications`
-  , `enable_followed_topic_wildcard_mentions_notify`, `enable_followed_topic_desktop_notifications`
-  and `enable_followed_topic_audible_notifications` boolean fields to control email,
-  push, wildcard mention, visual desktop and audible desktop notifications, respectively,
-  for messages sent to followed topics.
+  Added new boolean user settings  `enable_followed_topic_email_notifications`,
+  `enable_followed_topic_push_notifications`,
+  `enable_followed_topic_wildcard_mentions_notify`,
+  `enable_followed_topic_desktop_notifications`
+  and `enable_followed_topic_audible_notifications` to control whether a user
+  receives email, push, wildcard mention, visual desktop and audible desktop
+  notifications, respectively, for messages sent to followed topics.
 
 **Feature level 188**
 
@@ -247,7 +249,7 @@ No changes; feature level used for Zulip 7.0 release.
   [`GET /users/me`](/api/get-own-user), [`GET /events`](/api/get-events):
   The `delivery_email` field is always present in user objects, including
   the case when a user's `email_address_visibility` is set to everyone.
-  The value will be `null` if the requestor does not have access to the
+  The value will be `null` if the requester does not have access to the
   user's real email. For bot users, the `delivery_email` field is always
   set to the bot user's real email.
 * [`GET /events`](/api/get-events): Event for updating a user's
